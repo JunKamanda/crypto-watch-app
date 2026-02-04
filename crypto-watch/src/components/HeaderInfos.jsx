@@ -25,11 +25,11 @@ const HeaderInfos = () => {
         </li>
         <li>
           Crypto-monnaie :{" "}
-          {headerData?.active_cryptocurrencies?.toLocaleString("") ??
+          {headerData?.active_cryptocurrencies?.toLocaleString("fr-FR") ??
             "chargement ..."}
         </li>
         <li>
-          Marchés : {headerData?.markets?.toLocaleString() ?? "chargement ..."}
+          Marchés : {headerData?.markets ?? "chargement ..."}
         </li>
       </ul>
       <ul className="infos-mkt">
