@@ -25,7 +25,7 @@ const HeaderInfos = () => {
         </li>
         <li>
           Crypto-monnaie :{" "}
-          {headerData?.active_cryptocurrencies?.toLocaleString("") ??
+          {headerData?.active_cryptocurrencies?.toLocaleString("fr-Fr") ??
             "chargement ..."}
         </li>
         <li>
