@@ -34,19 +34,19 @@ const HeaderInfos = () => {
       </ul>
       <ul className="infos-mkt">
         <li className="global-mkt">
-          Global Market Cap :{" "}
+          Global Market Cap :
           <PercentChange
             percent={headerData?.market_cap_change_percentage_24h_usd}
           />
         </li>
         <li>
-          BTC dominance :{" "}
+          BTC dominance :
           {headerData?.market_cap_percentage?.btc?.toFixed(2) ??
             "chargement ..."}
           %
         </li>
         <li>
-          ETH dominance :{" "}
+          ETH dominance :
           {headerData?.market_cap_percentage?.eth?.toFixed(2) ??
             "chargement ..."}
           %
