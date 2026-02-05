@@ -2,6 +2,7 @@ import React, { use } from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import PercentChange from "./PercentChange";
+import TableFilters from "./TableFilters";
 
 const HeaderInfos = () => {
   //STATE
@@ -52,6 +53,7 @@ const HeaderInfos = () => {
           %
         </li>
       </ul>
+      <TableFilters/>
     </div>
   );
 };
