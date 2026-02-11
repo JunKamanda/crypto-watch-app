@@ -21,7 +21,7 @@ const Table = ({ coinsData }) => {
 
   return (
     <div className="table-container">
-      <div className="table-header">
+      <ul className="table-header">
         <div className="range-container">
           <span>
             Top {""}
@@ -48,18 +48,20 @@ const Table = ({ coinsData }) => {
               defaultChecked={
                 el === orderBy || el === orderBy + "reverse" ? true : false
               }
-              onClick={()=>{
-                if(orderBy === el){
-                    setOrderBy(el + "reverse")
+              onClick={() => {
+                if (orderBy === el) {
+                  setOrderBy(el + "reverse");
                 } else {
-                    setOrderBy(el)
+                  setOrderBy(el);
                 }
               }}
             />
             <label htmlFor={el}>{el}</label>
           </li>
         ))}
-      </div>
+      </ul>
+      {coinsData &&
+        coinsData.slice(0, rangeNumber).map((coin) => <h1>{coin.symbol}</h1>)}
     </div>
   );
 };
