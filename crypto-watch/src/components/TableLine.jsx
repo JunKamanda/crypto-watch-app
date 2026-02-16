@@ -1,4 +1,5 @@
 import React from "react";
+import PercentChange from "./PercentChange";
 
 const TableLine = ({ coin, index }) => {
   //COMPORTEMENT
@@ -46,7 +47,20 @@ const TableLine = ({ coin, index }) => {
         {mktCapFormater(coin.market_cap)?.toLocaleString()} M$
       </p>
       <p className="volume">{coin.total_volume?.toLocaleString()} $</p>
-      <PercentChange />
+      <PercentChange percent={coin.price_change_percentage_1h_in_currency} />
+      <PercentChange percent={coin.price_change_percentage_24h_in_currency} />
+      <PercentChange percent={coin.price_change_percentage_7d_in_currency} />
+      <PercentChange percent={coin.price_change_percentage_30d_in_currency} />
+      <PercentChange percent={coin.price_change_percentage_200d_in_currency} />
+      <PercentChange percent={coin.price_change_percentage_1y_in_currency} />
+      {
+        coin.ath_change_percentage > -3 ? (
+          <p>ATH !</p>
+        ) : (
+
+          <PercentChange percent={coin.ath_change_percentage} />
+        )
+      }
     </div>
   );
 };

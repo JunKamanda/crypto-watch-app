@@ -48,7 +48,7 @@ const GlobalChart = ({ coinsData }) => {
       for (let i = 0; i < 45; i++) {
         if (excludeCoin(coinsData[i]?.symbol)) {
           chartData.push({
-            name: `${coinsData[i]?.symbol.toUpperCase()} ${coinsData[i]?.price_change_percentage_24h.toFixed(1)}`,
+            name: `${coinsData[i]?.symbol.toUpperCase()} ${coinsData[i]?.price_change_percentage_24h?.toFixed(1)}`,
             size: coinsData[i]?.market_cap,
             fill: colorPicker(coinsData[i]?.price_change_percentage_24h),
           });
