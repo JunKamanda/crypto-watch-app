@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import TableLine from "./TableLine";
+import ToTop from "./ToTop";
 
 const Table = ({ coinsData }) => {
   //STATE
@@ -40,7 +41,9 @@ const Table = ({ coinsData }) => {
             value={rangeNumber}
             onChange={(e) => setRangeNumber(e.target.value)}
           />
+          <ToTop />
         </div>
+
         {tableHeader.map((el) => (
           <li key={el}>
             <input
@@ -63,10 +66,9 @@ const Table = ({ coinsData }) => {
         ))}
       </ul>
       {coinsData &&
-        coinsData.slice(0, rangeNumber).map((coin, index) =>(
-           <TableLine coin={coin} index={index}/>
-        ))}
-
+        coinsData
+          .slice(0, rangeNumber)
+          .map((coin, index) => <TableLine coin={coin} index={index} />)}
     </div>
   );
 };
