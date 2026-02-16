@@ -1,4 +1,3 @@
-import React from "react";
 import PercentChange from "./PercentChange";
 
 const TableLine = ({ coin, index }) => {
