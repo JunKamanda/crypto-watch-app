@@ -19,6 +19,14 @@ const App = () => {
       .then((res) => {
         setCoinsData(res.data);
       });
+
+    window.addEventListener("scroll", () => {
+      if (scrollY > 145){
+        document.querySelector(".table-header").classList.add("active");
+      } else {
+        document.querySelector(".table-header").classList.remove("active");
+      }
+    }); 
   }, []);
 
   //RENDER
