@@ -5,6 +5,7 @@ import HeaderInfos from "./components/HeaderInfos";
 import GlobalChart from "./components/GlobalChart";
 import Table from "./components/Table";
 import ToTop from "./components/ToTop";
+import {data} from "./db.js"
 
 const App = () => {
   //STATE
@@ -22,9 +23,9 @@ const App = () => {
 
     window.addEventListener("scroll", () => {
       if (scrollY > 145){
-        document.querySelector(".table-header").classList.add("active");
+        document.querySelector(".table-header")?.classList?.add("active");
       } else {
-        document.querySelector(".table-header").classList.remove("active");
+        document.querySelector(".table-header")?.classList?.remove("active");
       }
     }); 
   }, []);

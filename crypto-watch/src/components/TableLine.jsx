@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import PercentChange from "./PercentChange";
 import StarIcon from "./StarIcon";
+import CoinChart from "./CoinChart";
 
 const TableLine = ({ coin, index }) => {
+  //STATE
+  const [showChart, setShowChart] = useState(false);
+
   //COMPORTEMENT
   const priceFormater = (num) => {
     if (Math.round(num).toString().length < 4) {
@@ -30,13 +34,20 @@ const TableLine = ({ coin, index }) => {
           <img src={coin.image} height="20" alt="logo" />
         </div>
         <div className="infos">
-          <div className="chart-img">
+          <div
+            className="chart-img"
+            onMouseEnter={() => setShowChart(true)}
+            onMouseLeave={() => setShowChart(false)}
+          >
             <img src="./assets/chart-icon.svg" alt="chart-icon" />
+            <div className="chart-container" id={coin.name}>
+              {showChart && <CoinChart coinId={coin.id} coinName={coin.name} />}
+            </div>
           </div>
           <h4>{coin.name}</h4>
           <span>- {coin.symbol.toUpperCase()}</span>
           <a
-            href={`https://www.coingecko.com/fr/pi%C3%A8ces/${coin.name}.toLowerCase().replace(" ", "-").replace(" ", "-")`}
+            href={`https://www.coingecko.com/fr/pi%C3%A8ces/${coin.name?.toLowerCase().replace(" ", "-").replace(" ", "-").replace(" ", "-")}`}
             target="_blank"
           >
             <img src="./assets/info-icon.svg" alt="info-icon" />
@@ -54,14 +65,11 @@ const TableLine = ({ coin, index }) => {
       <PercentChange percent={coin.price_change_percentage_30d_in_currency} />
       <PercentChange percent={coin.price_change_percentage_200d_in_currency} />
       <PercentChange percent={coin.price_change_percentage_1y_in_currency} />
-      {
-        coin.ath_change_percentage > -3 ? (
-          <p>ATH !</p>
-        ) : (
-
-          <PercentChange percent={coin.ath_change_percentage} />
-        )
-      }
+      {coin.ath_change_percentage > -3 ? (
+        <p>ATH !</p>
+      ) : (
+        <PercentChange percent={coin.ath_change_percentage} />
+      )}
     </div>
   );
 };
