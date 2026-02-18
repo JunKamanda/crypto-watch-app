@@ -47,7 +47,7 @@ const TableLine = ({ coin, index }) => {
           <h4>{coin.name}</h4>
           <span>- {coin.symbol.toUpperCase()}</span>
           <a
-            href={`https://www.coingecko.com/fr/pi%C3%A8ces/${coin.name?.toLowerCase().replace(" ", "-").replace(" ", "-").replace(" ", "-")}`}
+            href={`https://www.coingecko.com/fr/pi%C3%A8ces/${coin.id?.toLowerCase()}`}
             target="_blank"
           >
             <img src="./assets/info-icon.svg" alt="info-icon" />

@@ -10,6 +10,8 @@ const StarIcon = ({ coinId }) => {
       const favList = stored.split(",");
       if (favList.includes(coinId)) {
         setLike(true);
+      } else {
+        setLike(false);
       }
     }
   }, [coinId]);
