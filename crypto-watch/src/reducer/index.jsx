@@ -1,8 +1,12 @@
-import { combineReducers } from "@reduxjs/toolkit";
-import stableReducer from "./stable.reducer.jsx";
-import listReducer from "./list.reducer.jsx";
+import { SET_STABLE_STATE } from "../action/stable.action";
 
-export default combineReducers({
-    stableReducer,
-    listReducer
-})
+const initialeState = { showStable: true };
+
+export default function stableReducer(state = initialeState, action) {
+  switch (action.type) {
+    case SET_STABLE_STATE:
+      return { showStable: action.payload };
+    default:
+      return state;
+  }
+}

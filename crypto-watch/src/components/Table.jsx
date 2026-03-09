@@ -9,8 +9,8 @@ const Table = ({ coinsData }) => {
   //STATE
   const [orderBy, setOrderBy] = useState("");
   const [rangeNumber, setRangeNumber] = useState(100);
-  const showStable = useSelector((state) => state.stableReducer.showStable);
-  const showFavList = useSelector((state) => state.listReducer.showList);
+  const showStable = useSelector((state) => state?.stableReducer?.showStable);
+  const showFavList = useSelector((state) => state?.listReducer?.showList);
 
   //COMPORTEMENT
   const tableHeader = [
